@@ -1,0 +1,252 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    font: inherit;
+    text-decoration: inherit;
+    color: inherit;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.game-area { 
+    background-color: pink;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+
+.game-area.si3{
+    background-image: url("images/si3.jpg");
+    background-size: cover;
+    z-index: 10;
+}
+
+
+.game-intro {
+   position: absolute;
+   border: 1px solid pink;
+   position: relative;
+   text-align: center;
+   height: 100%;
+}
+
+.game-intro h1 {
+    border: 1px solid black;
+    width: 350px;
+    margin: 20vh auto 10vh;
+    padding: 50px;
+}
+
+.game-intro h2 {
+    min-width: 0px;
+    margin: 3% auto;
+}
+
+
+.game-box{  
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 7px;
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-gap: 5px;
+    background: black;
+    pointer-events: none;
+}
+
+.game-box.level-1{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.game-box.level-2{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.game-box.level-3{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+/* CLASS FOR MAKING THE GAME BOX INSISIBLE AND NON-INTERACTIVE */
+/* IT STARTS LIKE THIS */
+/* .disable-me {
+    opacity: 0;
+    pointer-events: none;
+} */
+
+
+.cell{
+
+    width: 180px;
+    height: 180px;
+    padding: 50px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+}
+
+
+.game-over{
+    display: none;
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.game-over > p{
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: 5px;
+ 
+}
+
+.game-over .moves {
+
+    position: absolute;
+    top: 9%;
+    left: 10%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+}
+
+.game-over .time {
+
+    position: absolute;
+    top: 9%;
+    left: 90%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+}
+
+.game-over button{
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: inherit;
+    border: none;
+    font-size: 30px;
+    padding: 10px;
+    outline: 0;
+    cursor: pointer;
+}
+
+.game-over button:hover {
+    /* border: 1px solid rgb(0, 0, 0); */
+    font-size: 35px;
+    font-weight: 800px;
+}
+
+/* ===============================================
+THESE CLASSES STYLE THE CELLS -WHEN WE CLICK THEM-
+========WITH THE SYMBOLS WE HAVE TO MATCH=========
+================================================== */
+
+.hearts{
+    background-color: #46a8b9;
+    background-image: url(images/heart.png);
+    /* add a different pretty bg color */
+}
+
+.spades{
+    background-color: rgb(212, 212, 212);
+    background-image: url(images/spades.png);
+    background-size: 70%;   
+}
+
+.clubs{
+    background-color: rgb(199, 179, 179);
+    background-image: url(images/clubs2.png);
+    background-size: 80%;   
+}
+
+.diamonds{
+    background-color: pink;
+    background-image: url(images/diamonds.png);
+    background-size: 90%;  
+}
+
+.mushroom{
+    background-color: rgb(179, 179, 62);
+    background-image: url(images/mushroom.png);
+    background-size: 90%;  
+}
+
+.orange{
+    background-color: teal;
+    background-image: url(images/orange.png);
+    background-size: 80%;  
+}
+
+.sword{
+    background-color: rgb(99, 99, 42);
+    background-image: url(images/sword.png);
+    background-size: 80%;  
+}
+
+.horse{
+    background-color: rgb(141, 33, 51);
+    background-image: url(images/horse.png);
+    background-size: 80%;  
+}
+
+.sun{
+    background-color: Purple;
+    background-image: url(images/sun.png);
+    background-size: 80%;  
+}
+
+.moon{
+    background-color: rgb(77, 146, 63);
+    background-image: url(images/moon.png);
+    background-size: 80%;  
+}
+
+.hidden{
+    background-image: none;
+    background-color: rgb(231, 15, 15);
+    /* pointer-events: none; */
+}
+
+.hidden:hover {
+    background-color: rgb(224, 41, 41);
+    cursor: pointer;
+}
+
+/* ===============================================
+======================ANIMATIONS==================
+================================================== */
+
+@keyframes for-game-intro{
+    0% {transform: translate(0,0); pointer-events: none;}
+    100% {transform: translate(0,100%);}
+}
+
+@keyframes for-game-box{
+    0% {top: -50%;}
+    99% {pointer-events: none;}
+    100% {top: 50%; pointer-events: all;}
+}
